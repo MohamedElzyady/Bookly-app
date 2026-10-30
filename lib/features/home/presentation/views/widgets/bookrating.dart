@@ -1,3 +1,4 @@
+import 'package:book_app/core/utils/responsive_helper.dart';
 import 'package:book_app/core/utils/style.dart';
 import 'package:book_app/features/constants.dart';
 import 'package:flutter/material.dart';
@@ -12,16 +13,16 @@ class BookRating extends StatelessWidget {
     return Row(
       mainAxisAlignment: mainAxisAlignment,
       children: [
-        const Icon(
+        Icon(
           FontAwesomeIcons.solidStar,
-          size: 14,
-          color: Color.fromARGB(255, 247, 255, 7),
+          size: context.sp(14),
+          color: const Color.fromARGB(255, 247, 255, 7),
         ),
-        Gap(4),
-        const Text('4.8', style: Style.textStyle16),
+        Gap(context.w(4)),
+        Text('4.8', style: Style.textStyle16(context)),
         Text(
           ' (2.390)',
-          style: Style.textStyle14.copyWith(
+          style: Style.textStyle14(context).copyWith(
             color: secondaryColor,
             fontWeight: FontWeight.w600,
           ),

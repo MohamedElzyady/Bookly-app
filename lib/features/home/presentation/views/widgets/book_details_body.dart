@@ -1,3 +1,4 @@
+import 'package:book_app/core/utils/responsive_helper.dart';
 import 'package:book_app/core/utils/style.dart';
 import 'package:book_app/features/constants.dart';
 import 'package:book_app/features/home/data/models/book_model/book_model.dart';
@@ -25,7 +26,7 @@ class BookDetailsBody extends StatelessWidget {
         SliverFillRemaining(
           hasScrollBody: false,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: context.w(20)),
             child: Column(
               children: [
                 const CustomBookDetailsAppbar(),
@@ -35,29 +36,29 @@ class BookDetailsBody extends StatelessWidget {
                     imagUrl: book.volumeInfo.imageLinks?.thumbnail ?? '',
                   ),
                 ),
-                const Gap(33),
+                Gap(context.h(33)),
                 
                 Text(
                   title,
-                  style: Style.textStyle30,
+                  style: Style.textStyle30(context),
                   textAlign: TextAlign.center,
                 ),
-                const Gap(5),
+                Gap(context.h(5)),
                 Text(
                   author,
-                  style: Style.textStyle18.copyWith(color: secondaryColor),
+                  style: Style.textStyle18(context).copyWith(color: secondaryColor),
                 ),
                 const BookRating(mainAxisAlignment: MainAxisAlignment.center),
-                const Gap(37),
+                Gap(context.h(37)),
                 BookAction(
                   book: book,
                 ),
-                Expanded(child: const Gap(50)),
-                const Align(
+                Expanded(child: Gap(context.h(50))),
+                Align(
                   alignment: AlignmentGeometry.centerLeft,
-                  child: Text('You can also read', style: Style.textStyle18),
+                  child: Text('You can also read', style: Style.textStyle18(context)),
                 ),
-                const Gap(17),
+                Gap(context.h(17)),
                 const DerailsListview(),
               ],
             ),

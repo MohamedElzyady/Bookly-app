@@ -1,3 +1,4 @@
+import 'package:book_app/core/utils/responsive_helper.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,7 @@ class ListItem extends StatelessWidget {
         (imagUrl.startsWith('http://') || imagUrl.startsWith('https://'));
 
     return ClipRRect(
-      borderRadius: BorderRadiusGeometry.circular(13),
+      borderRadius: BorderRadiusGeometry.circular(context.w(13)),
       child: AspectRatio(
         aspectRatio: 2.7 / 4,
         child: hasValidUrl

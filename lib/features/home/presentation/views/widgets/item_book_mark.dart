@@ -1,3 +1,4 @@
+import 'package:book_app/core/utils/responsive_helper.dart';
 import 'package:book_app/features/favorite/presentation/view_model/favorites_cubit/favorites_cubit.dart';
 import 'package:book_app/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
@@ -53,22 +54,22 @@ class _ItemBookMarkerState extends State<ItemBookMarker>
           final isBookmarked = cubit.isBookBookmarked(widget.book);
 
           return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10),
+            padding: EdgeInsets.symmetric(vertical: context.h(10)),
             child: Stack(
               clipBehavior: Clip.none,
               children: [
                 BestsellarText(book: widget.book),
 
                 Positioned(
-                  top: -16,
-                  left: 40,
+                  top: context.h(-16),
+                  left: context.w(40),
                   child: GestureDetector(
                     onTap: () {
                       cubit.toggleBook(widget.book);
                     },
                     child: SizedBox(
-                      width: 70,
-                      height: 70,
+                      width: context.w(70),
+                      height: context.h(70),
                       child: Lottie.asset(
                         'assets/animation/BOOKMARK.json',
                         controller: _controller,

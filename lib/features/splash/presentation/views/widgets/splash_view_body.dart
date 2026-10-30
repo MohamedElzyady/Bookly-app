@@ -1,4 +1,5 @@
 import 'package:book_app/core/utils/assets.dart';
+import 'package:book_app/core/utils/responsive_helper.dart';
 import 'package:book_app/features/splash/presentation/views/widgets/sliding.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -49,8 +50,11 @@ class _SplashViewBodyState extends State<SplashViewBody>
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.asset(AssetsData.logo),
-        Gap(4),
+        Image.asset(
+          AssetsData.logo,
+          height: context.h(80),
+        ),
+        Gap(context.h(4)),
         Sliding(slidingAnimation: slidingAnimation),
       ],
     );

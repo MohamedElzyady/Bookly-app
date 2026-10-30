@@ -1,3 +1,4 @@
+import 'package:book_app/core/utils/responsive_helper.dart';
 import 'package:book_app/core/utils/style.dart';
 import 'package:book_app/features/search/presentation/view_model/search_cubit/search_cubit.dart';
 import 'package:book_app/features/home/presentation/views/widgets/bestsellar_text.dart';
@@ -18,12 +19,12 @@ class SearchResult extends StatelessWidget {
           );
         } else if (state is SearchFailure) {
           return Center(
-            child: Text(state.errorMessage, style: Style.textStyle14),
+            child: Text(state.errorMessage, style: Style.textStyle14(context)),
           );
         } else if (state is SearchSuccess) {
           if (state.books.isEmpty) {
-            return const Center(
-              child: Text('No books found', style: Style.textStyle14),
+            return Center(
+              child: Text('No books found', style: Style.textStyle14(context)),
             );
           }
           return ListView.builder(
@@ -32,13 +33,13 @@ class SearchResult extends StatelessWidget {
             itemCount: state.books.length,
             itemBuilder: (context, index) { 
               return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
+                padding: EdgeInsets.symmetric(vertical: context.h(10)),
                 child: BestsellarText(book: state.books[index]),
               );
             },
           );
         }
-        return const Center(child: Text('Type a book name and press search'));
+        return Center(child: Text('Type a book name and press search', style: Style.textStyle14(context)));
       },
     );
   }

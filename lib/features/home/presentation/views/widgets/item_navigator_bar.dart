@@ -1,3 +1,4 @@
+import 'package:book_app/core/utils/responsive_helper.dart';
 import 'package:flutter/material.dart';
 
 class ItemNavigatorBar extends StatelessWidget {
@@ -8,11 +9,11 @@ class ItemNavigatorBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(26, 0, 26, 16),
+      padding: EdgeInsets.fromLTRB(context.w(26), 0, context.w(26), context.h(16)),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white.withValues(alpha: 0.17), // لون خلفية الـ bar
-          borderRadius: BorderRadius.circular(40), // البوردر الدائري
+          borderRadius: BorderRadius.circular(context.w(40)), // البوردر الدائري
           boxShadow: [
             // ظل عشان تأثير الطفو
             BoxShadow(
@@ -30,43 +31,26 @@ class ItemNavigatorBar extends StatelessWidget {
           backgroundColor: Colors.transparent,
           selectedItemColor: Colors.deepOrange,
           unselectedItemColor: Colors.grey,
+          showSelectedLabels: false,
           showUnselectedLabels: false,
           selectedFontSize: 0,
           unselectedFontSize: 0,
           type: BottomNavigationBarType.fixed,
-          items: const [
+          items: [
             BottomNavigationBarItem(
               label: 'home',
-              icon: Padding(
-                padding: EdgeInsets.only(top: 20),
-                child: Icon(Icons.home_outlined, size: 27),
-              ),
-              activeIcon: Padding(
-                padding: EdgeInsets.only(top: 20),
-                child: Icon(Icons.home, size: 27),
-              ),
+              icon: Icon(Icons.home_outlined, size: context.sp(27)),
+              activeIcon: Icon(Icons.home, size: context.sp(27)),
             ),
             BottomNavigationBarItem(
               label: 'favorit',
-              icon: Padding(
-                padding: EdgeInsets.only(top: 20),
-                child: Icon(Icons.favorite_border, size: 27),
-              ),
-              activeIcon: Padding(
-                padding: EdgeInsets.only(top: 20),
-                child: Icon(Icons.favorite, size: 27),
-              ),
+              icon: Icon(Icons.favorite_border, size: context.sp(27)),
+              activeIcon: Icon(Icons.favorite, size: context.sp(27)),
             ),
             BottomNavigationBarItem(
               label: 'cart',
-              icon: Padding(
-                padding: EdgeInsets.only(top: 20),
-                child: Icon(Icons.shopping_cart_outlined, size: 27),
-              ),
-              activeIcon: Padding(
-                padding: EdgeInsets.only(top: 20),
-                child: Icon(Icons.shopping_cart, size: 27),
-              ),
+              icon: Icon(Icons.shopping_cart_outlined, size: context.sp(27)),
+              activeIcon: Icon(Icons.shopping_cart, size: context.sp(27)),
             ),
           ],
         ),

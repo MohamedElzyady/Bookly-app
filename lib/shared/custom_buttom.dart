@@ -1,3 +1,4 @@
+import 'package:book_app/core/utils/responsive_helper.dart';
 import 'package:book_app/core/utils/style.dart';
 import 'package:flutter/material.dart';
 
@@ -17,18 +18,18 @@ class CustomButtom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 48,
+      height: context.h(48),
       child: TextButton(
         style: TextButton.styleFrom(
           backgroundColor: backgroundcolor,
           shape: RoundedRectangleBorder(
-            borderRadius: borderRadius ?? BorderRadiusGeometry.circular(16),
+            borderRadius: borderRadius ?? BorderRadiusGeometry.circular(context.w(16)),
           ),
         ),
         onPressed: onPressed,
         child: Text(
           text,
-          style: Style.textStyle18.copyWith(
+          style: Style.textStyle18(context).copyWith(
             color: textColor,
             fontWeight: FontWeight.bold,
           ),

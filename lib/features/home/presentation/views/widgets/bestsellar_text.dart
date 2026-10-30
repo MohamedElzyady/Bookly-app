@@ -1,3 +1,4 @@
+import 'package:book_app/core/utils/responsive_helper.dart';
 import 'package:book_app/core/utils/style.dart';
 import 'package:book_app/features/home/data/models/book_model/book_model.dart';
 import 'package:book_app/features/home/presentation/views/widgets/bookrating.dart';
@@ -22,7 +23,7 @@ class BestsellarText extends StatelessWidget {
         GoRouter.of(context).push('/bookDeatils', extra: book);
       },
       child: SizedBox(
-        height: 125,
+        height: context.h(125),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -31,7 +32,7 @@ class BestsellarText extends StatelessWidget {
                   book.volumeInfo.imageLinks?.thumbnail ??
                   'https://via.placeholder.com/150',
             ),
-            const Gap(30),
+            Gap(context.w(30)),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,17 +43,17 @@ class BestsellarText extends StatelessWidget {
                       title,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: Style.textStyle20.copyWith(
+                      style: Style.textStyle20(context).copyWith(
                         fontFamily: 'GT Sectra',
                       ),
                     ),
                   ),
-                  Text(author, style: Style.textStyle14),
+                  Text(author, style: Style.textStyle14(context)),
                   Row(
                     children: [
                       Text(
                         'Free',
-                        style: Style.textStyle20.copyWith(
+                        style: Style.textStyle20(context).copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                       ),

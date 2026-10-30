@@ -1,3 +1,4 @@
+import 'package:book_app/core/utils/responsive_helper.dart';
 import 'package:book_app/core/utils/style.dart';
 import 'package:book_app/features/search/presentation/view_model/search_cubit/search_cubit.dart';
 import 'package:book_app/features/search/presentation/views/widgets/search_result.dart';
@@ -35,7 +36,7 @@ class _SearchBodyState extends State<SearchBody> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(horizontal: context.w(20)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -45,23 +46,23 @@ class _SearchBodyState extends State<SearchBody> {
             onSubmitted: (_) => _submitSearch(context),
             decoration: InputDecoration(
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(context.w(12)),
                 borderSide: BorderSide(color: Colors.blue, width: 2),
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(context.w(12)),
                 borderSide: BorderSide(color: Colors.white, width: 2),
               ),
               hintText: 'Search',
               suffixIcon: IconButton(
                 onPressed: () => _submitSearch(context),
-                icon: const Icon(FontAwesomeIcons.magnifyingGlass, size: 19),
+                icon: Icon(FontAwesomeIcons.magnifyingGlass, size: context.sp(19)),
               ),
             ),
           ),
-          const Gap(10),
-          const Text('Search Result', style: Style.textStyle18),
-          const Gap(10),
+          Gap(context.h(10)),
+          Text('Search Result', style: Style.textStyle18(context)),
+          Gap(context.h(10)),
           const Expanded(child: SearchResult()),
         ],
       ),

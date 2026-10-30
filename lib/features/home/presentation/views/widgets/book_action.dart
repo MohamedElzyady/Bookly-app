@@ -1,3 +1,4 @@
+import 'package:book_app/core/utils/responsive_helper.dart';
 import 'package:book_app/features/home/data/models/book_model/book_model.dart';
 import 'package:book_app/shared/custom_buttom.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +35,7 @@ class _BookActionState extends State<BookAction> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8),
+      padding: EdgeInsets.symmetric(horizontal: context.w(8)),
       child: Row(
         children: [
           Expanded(
@@ -43,8 +44,8 @@ class _BookActionState extends State<BookAction> {
               backgroundcolor: Colors.white,
               textColor: Colors.black,
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(16),
-                bottomLeft: Radius.circular(16),
+                topLeft: Radius.circular(context.w(16)),
+                bottomLeft: Radius.circular(context.w(16)),
               ),
             ),
           ),
@@ -55,8 +56,8 @@ class _BookActionState extends State<BookAction> {
               backgroundcolor: const Color.fromARGB(255, 239, 98, 55),
               textColor: Colors.white,
               borderRadius: BorderRadius.only(
-                topRight: Radius.circular(16),
-                bottomRight: Radius.circular(16),
+                topRight: Radius.circular(context.w(16)),
+                bottomRight: Radius.circular(context.w(16)),
               ),
             ),
           ),

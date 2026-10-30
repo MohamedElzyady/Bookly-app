@@ -1,4 +1,5 @@
 import 'package:book_app/core/utils/assets.dart';
+import 'package:book_app/core/utils/responsive_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
@@ -10,13 +11,17 @@ class CustomAppbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Image.asset(AssetsData.logo, height: 20),
+        Image.asset(AssetsData.logo, height: context.h(20)),
         Spacer(),
         IconButton(
           onPressed: () {
             GoRouter.of(context).push("/search");
           },
-          icon: Icon(FontAwesomeIcons.magnifyingGlass, color: Colors.white),
+          icon: Icon(
+            FontAwesomeIcons.magnifyingGlass,
+            color: Colors.white,
+            size: context.sp(20),
+          ),
         ),
       ],
     );
